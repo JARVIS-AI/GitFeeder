@@ -18,14 +18,17 @@ export default function Home() {
   if (status === "loading") return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-6">My Feed App</h1>
-      <button
-        className="px-4 py-2 bg-blue-600 text-white rounded"
-        onClick={() => signIn("github")}
-      >
-        Login with GitHub
-      </button>
-    </div>
+    <div className="flex flex-col items-center justify-center h-screen text-center">
+  <h1 className="text-5xl font-bold tracking-tight mb-4">My Feed App</h1>
+  <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+    Stay updated with your latest GitHub activity
+  </p>
+  <button
+    className="px-6 py-3 bg-black text-white rounded-lg hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 transition-colors"
+    onClick={() => signIn("github")}
+  >
+    Login with GitHub
+  </button>
+</div>
   );
 }

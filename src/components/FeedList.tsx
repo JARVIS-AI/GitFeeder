@@ -2,18 +2,28 @@
 
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export default function FeedList() {
   const { data: session } = useSession();
   const username = session?.username;
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const githubFeedUrl = username
     ? `https://api.github.com/users/${username}/events/public`
     : null;
 
   const { data: events, error, isLoading, mutate } = useSWR(githubFeedUrl, fetcher);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await mutate();
+    setIsRefreshing(false);
+    toast.success("Feed updated!");
+  };
 
   if (error) return <div>❌ Failed to load GitHub feed</div>;
   if (isLoading || !events) return <div>⏳ Loading GitHub activity...</div>;
@@ -25,10 +35,30 @@ export default function FeedList() {
   return (
     <div className="space-y-4">
       <button
-        onClick={() => mutate()}
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        onClick={handleRefresh}
+        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-2"
+        disabled={isRefreshing}
       >
-        🔄 Refresh Feed
+        {isRefreshing ? (
+          <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+            />
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4l5-5-5-5v4a10 10 0 00-10 10h4z"
+            />
+          </svg>
+        ) : (
+          "🔄 Refresh Feed"
+        )}
       </button>
 
       {visibleEvents.length === 0 && (
