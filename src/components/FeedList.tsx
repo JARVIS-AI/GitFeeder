@@ -7,6 +7,25 @@ import toast from "react-hot-toast";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
+interface PullRequestPayload {
+  pull_request?: {
+    html_url: string;
+    title: string;
+  };
+}
+
+interface GitHubEvent {
+  id: string;
+  type: string;
+  repo: { name: string };
+  created_at: string;
+  payload: PullRequestPayload & {
+    ref_type?: string;
+    commits?: { sha: string; message: string }[];
+    action?: string;
+  };
+}
+
 export default function FeedList() {
   const { data: session } = useSession();
   const username = session?.username;
@@ -28,7 +47,7 @@ export default function FeedList() {
   if (error) return <div>❌ Failed to load GitHub feed</div>;
   if (isLoading || !events) return <div>⏳ Loading GitHub activity...</div>;
 
-  const visibleEvents = events.filter((event: any) =>
+  const visibleEvents = events.filter((event: GitHubEvent) =>
     ["CreateEvent", "PushEvent", "PullRequestEvent", "WatchEvent", "ForkEvent"].includes(event.type)
   );
 
@@ -65,7 +84,7 @@ export default function FeedList() {
         <div className="text-gray-500 mt-4">No recent activity found. Try refreshing or come back later.</div>
       )}
 
-      {visibleEvents.map((event: any) => {
+      {visibleEvents.map((event: GitHubEvent) => {
         const repoUrl = `https://github.com/${event.repo.name}`;
         const timestamp = new Date(event.created_at).toLocaleString();
 
@@ -88,7 +107,7 @@ export default function FeedList() {
                   {event.repo.name}
                 </a>
                 <ul className="text-sm mt-2 list-disc list-inside">
-                  {event.payload.commits?.map((commit: any) => (
+                  {event.payload.commits?.map((commit: { sha: string; message: string }) => (
                     <li key={commit.sha}>{commit.message}</li>
                   ))}
                 </ul>
@@ -100,12 +119,12 @@ export default function FeedList() {
               <div key={event.id} className="p-4 border rounded shadow-sm">
                 🔀 <strong>{event.payload.action} pull request:</strong>{" "}
                 <a
-                  href={event.payload.pull_request.html_url}
+                  href={event.payload.pull_request?.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 underline"
                 >
-                  {event.payload.pull_request.title}
+                  {event.payload.pull_request?.title}
                 </a>
                 <div className="text-sm text-gray-600">{timestamp}</div>
               </div>
