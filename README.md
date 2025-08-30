@@ -1,8 +1,3 @@
-Got it, Jarvis — let’s make your README look clean, professional, and “badge‑worthy” so it impresses both GitHub visitors and the GitHub Developer Program reviewers.  
-Here’s a **ready‑to‑use template** you can drop into your repo and tweak with your project details.  
-
----
-
 # **📦 My Next.js Project**
 
 > A modern, production‑ready Next.js application deployed on Vercel — built for speed, scalability, and developer happiness.
@@ -110,15 +105,3 @@ Feel free to check the [issues page](https://github.com/YOUR_USERNAME/YOUR_REPO_
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Vercel Deployment Guide](https://vercel.com/docs)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs) *(if applicable)*
-
----
-
-Jarvis, if you want, I can also **add GitHub shields/badges** for:
-- GitHub stars
-- Last commit
-- License
-- Vercel status  
-
-That will make your README pop visually and look even more “developer program” ready.  
-
-Do you want me to add those badges for you?
