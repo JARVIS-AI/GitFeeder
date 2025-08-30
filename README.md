@@ -59,7 +59,7 @@ my-nextjs-project/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git clone https://github.com/JARVIS-AI/GitFeeder.git
 cd YOUR_REPO_NAME
 ```
 
@@ -102,7 +102,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🤝 **Contributing**
 Contributions, issues, and feature requests are welcome!  
-Feel free to check the [issues page](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/issues).
+Feel free to check the [issues page](https://github.com/JARVIS-AI/GitFeeder.git/issues).
 
 ---
 
