@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "tsc next.config.ts --esModuleInterop --module commonjs --target es2019 --outDir .",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
@@ -27,6 +28,6 @@
     "eslint-config-next": "15.5.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12",
-    "typescript": "^5"
+    "typescript": "^5.9.2"
   }
 }
