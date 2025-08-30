@@ -23,8 +23,10 @@
 │   │       ├── auth
 │   │       │   └── [...nextauth].ts
 │   │       └── feed.ts
-│   └── style
-│       └── globals.css
+│   ├── style
+│   │   └── globals.css
+│   └── types
+│       └── next-auth.d.ts
 ├── .env.local
 ├── .gitignore
 ├── eslint.config.mjs
@@ -34,5 +36,6 @@
 ├── package.json
 ├── postcss.config.mjs
 ├── README.md
+├── tailwind.config.js
 ├── Tree
 └── tsconfig.json
