@@ -29,10 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Toaster position="top-right" />
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen mb-8 flex flex-col">
           <Providers>
             <main className="flex-1 container mx-auto px-6">{children}</main>
           </Providers>
+          <footer className="text-center text-sm text-gray-500 py-4 mt-auto">
+            Made by JARVIS-AI
+          </footer>
         </div>
       </body>
     </html>

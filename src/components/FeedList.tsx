@@ -55,7 +55,7 @@ export default function FeedList() {
     <div className="space-y-4">
       <button
         onClick={handleRefresh}
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-2"
+        className="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-700 flex items-center gap-2"
         disabled={isRefreshing}
       >
         {isRefreshing ? (
@@ -91,7 +91,7 @@ export default function FeedList() {
         switch (event.type) {
           case "CreateEvent":
             return (
-              <div key={event.id} className="p-4 border rounded shadow-sm">
+              <div key={event.id} className="p-4 border border-dashed rounded-xl shadow-xl">
                 🆕 <strong>Created repo:</strong>{" "}
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
                   {event.repo.name}
@@ -101,7 +101,7 @@ export default function FeedList() {
             );
           case "PushEvent":
             return (
-              <div key={event.id} className="p-4 border rounded shadow-sm">
+              <div key={event.id} className="p-4 border border-dashed rounded-xl shadow-xl">
                 📤 <strong>Pushed to:</strong>{" "}
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
                   {event.repo.name}
@@ -116,7 +116,7 @@ export default function FeedList() {
             );
           case "PullRequestEvent":
             return (
-              <div key={event.id} className="p-4 border rounded shadow-sm">
+              <div key={event.id} className="p-4 border border-dashed rounded-xl shadow-xl">
                 🔀 <strong>{event.payload.action} pull request:</strong>{" "}
                 <a
                   href={event.payload.pull_request?.html_url}
@@ -131,7 +131,7 @@ export default function FeedList() {
             );
           case "WatchEvent":
             return (
-              <div key={event.id} className="p-4 border rounded shadow-sm">
+              <div key={event.id} className="p-4 border border-dashed rounded-xl shadow-xl">
                 ⭐ <strong>Starred:</strong>{" "}
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
                   {event.repo.name}
@@ -141,7 +141,7 @@ export default function FeedList() {
             );
           case "ForkEvent":
             return (
-              <div key={event.id} className="p-4 border rounded shadow-sm">
+              <div key={event.id} className="p-4 border border-dashed rounded-xl shadow-xl">
                 🍴 <strong>Forked:</strong>{" "}
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
                   {event.repo.name}

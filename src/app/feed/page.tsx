@@ -11,7 +11,7 @@ export default function FeedPage() {
       <div className="flex flex-col items-center justify-center h-screen">
         <p className="mb-4">You need to login to see the feed.</p>
         <button
-          className="px-4 py-2 bg-blue-600 text-white rounded"
+          className="px-4 py-2 bg-blue-500 text-white rounded-xl"
           onClick={() => signIn("github")}
         >
           Login with GitHub
@@ -25,7 +25,7 @@ export default function FeedPage() {
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Welcome, {session.user?.name}</h1>
         <button
-          className="px-3 py-1 bg-red-500 text-white rounded"
+          className="px-3 py-1 bg-black text-white rounded-xl"
           onClick={() => signOut()}
         >
           Logout
