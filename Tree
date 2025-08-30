@@ -8,13 +8,16 @@
 ├── src
 │   ├── app
 │   │   ├── feed
-│   │   │   └── feed.tsx
+│   │   │   └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── components
 │   │   ├── FeedItem.tsx
-│   │   └── FeedList.tsx
+│   │   ├── FeedList.tsx
+│   │   └── Providers.tsx
+│   ├── lib
+│   │   └── github.ts
 │   ├── pages
 │   │   └── api
 │   │       ├── auth
