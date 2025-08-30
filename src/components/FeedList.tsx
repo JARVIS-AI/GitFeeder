@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
@@ -13,7 +13,7 @@ export default function FeedList() {
     ? `https://api.github.com/users/${username}/events/public`
     : null;
 
-  const { data: events, error, isLoading } = useSWR(githubFeedUrl, fetcher);
+  const { data: events, error, isLoading, mutate } = useSWR(githubFeedUrl, fetcher);
 
   if (error) return <div>❌ Failed to load GitHub feed</div>;
   if (isLoading || !events) return <div>⏳ Loading GitHub activity...</div>;
@@ -25,7 +25,7 @@ export default function FeedList() {
   return (
     <div className="space-y-4">
       <button
-        onClick={() => mutate(githubFeedUrl)}
+        onClick={() => mutate()}
         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
       >
         🔄 Refresh Feed
