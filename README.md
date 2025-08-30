@@ -16,11 +16,16 @@ It’s fully integrated with environment variables for secure configuration and 
 ---
 
 ## ✨ **Features**
-- ⚡ **Next.js 14** with App Router
-- 🎨 **Tailwind CSS** for styling (if you’re using it)
-- 🔒 Environment variables for secure API keys
-- 📱 Fully responsive design
-- 🚀 Deployed on **Vercel** with automatic builds from GitHub
+- ⚡ **Next.js 15** with **Turbopack** for ultra‑fast builds and hot reloads  
+- 🎨 **Tailwind CSS v4** with PostCSS & Autoprefixer for modern, utility‑first styling  
+- 🔐 **NextAuth.js** for secure authentication and session management  
+- 🐙 **GitHub API Integration** via `@octokit/core` to fetch and display GitHub data  
+- 🔄 **SWR** for efficient data fetching, caching, and real‑time UI updates  
+- 🔔 **React Hot Toast** for sleek, non‑blocking notifications  
+- 🛡 **TypeScript** for type‑safe, maintainable code  
+- ✅ **ESLint** with Next.js config for consistent code quality  
+- 📱 Fully responsive design for mobile, tablet, and desktop  
+- 🚀 **Vercel Deployment** with environment‑specific configuration  
 
 ---
 
